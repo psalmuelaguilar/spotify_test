@@ -1,0 +1,17 @@
+TEST
+<%= form_tag(spotify_index_path, method: :get) do %>
+  <%= text_field_tag 'spotify_search' %>
+
+  <%= submit_tag('search')%>
+<% end %>
+
+<script>
+
+  $.ajax({
+    url: 'https://api.spotify.com/v1/search',
+    data: {
+      q: query,
+      type: 'artists'
+    }
+  });
+</script>
