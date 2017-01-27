@@ -3,6 +3,11 @@ SpotifyTest::Application.routes.draw do
 
   resources :spotify
   namespace :v1 do
-    resources :spotify
+    resources :spotify do
+      collection do
+        post :set_favorite
+        get :favorites
+      end
+    end
   end
 end
