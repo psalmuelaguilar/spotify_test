@@ -5,13 +5,9 @@ TEST
   <%= submit_tag('search')%>
 <% end %>
 
-<script>
-
-  $.ajax({
-    url: 'https://api.spotify.com/v1/search',
-    data: {
-      q: query,
-      type: 'artists'
-    }
-  });
-</script>
+<% @response.each do |resp| %>
+  <div>
+    <b> <%= resp[:name] %> </b>
+    <%= resp[:external_urls]%>
+  </div>
+<% end %>

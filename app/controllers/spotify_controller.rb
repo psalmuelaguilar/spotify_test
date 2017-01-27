@@ -4,7 +4,9 @@ class SpotifyController < ApplicationController
       # FETCH SERVICE
       service = SpotifyServices::Search.new({query: params[:spotify_search]})
       response = service.fetch
-      service.process
+      if response.code == 200
+        @response = service.process
+      end
     end
   end
 end

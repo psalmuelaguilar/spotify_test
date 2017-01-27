@@ -1,7 +1,7 @@
 module SpotifyServices
   class Search < SpotifyBase
     def initialize(object)
-      @query = object[:query]
+      @query = object[:query] || "Justin Bieber"
       @type = "artist"
     end
 
@@ -18,7 +18,7 @@ module SpotifyServices
           external_urls: resp['external_urls']['spotify'],
           genres: resp['genres'],
           href: resp['href'],
-          href: resp['name'],
+          name: resp['name'],
         }
       end
 
